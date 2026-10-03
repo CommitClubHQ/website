@@ -10,7 +10,8 @@ export const siteConfig = {
     "CommitClubHQ helps university students learn, build, collaborate, and prepare for careers in software.",
   // Each NEXT_PUBLIC_* variable must be read literally so Next.js can inline it.
   siteUrl: optionalUrl(process.env.NEXT_PUBLIC_SITE_URL)?.replace(/\/$/, "") ?? null,
-  programFormUrl: optionalUrl(process.env.NEXT_PUBLIC_PROGRAM_FORM_URL),
+  programFormUrl:
+    optionalUrl(process.env.NEXT_PUBLIC_PROGRAM_FORM_URL) ?? "https://forms.gle/tZdhbHkPv2Fot68X7",
   bookUrl: optionalUrl(process.env.NEXT_PUBLIC_BOOK_URL),
   socials: [
     {
