@@ -49,14 +49,14 @@ Open <http://localhost:3000>.
 Copy `.env.example` to `.env.local`. All variables are optional in development, and none of them
 are secrets: `NEXT_PUBLIC_*` values are embedded in the browser bundle.
 
-| Variable                       | Purpose                                                                                                                                                            |
-| ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `NEXT_PUBLIC_PROGRAM_FORM_URL` | Google Form for every "Join the Program" button. If unset, the buttons scroll to the Join section and the form button is shown as disabled ("Sign-up opens soon"). |
-| `NEXT_PUBLIC_SITE_URL`         | Production origin (no trailing slash). Enables the canonical URL and absolute Open Graph URLs.                                                                     |
-| `NEXT_PUBLIC_INSTAGRAM_URL`    | Optional override for the footer Instagram link (defaults to the official profile).                                                                                |
-| `NEXT_PUBLIC_LINKEDIN_URL`     | Optional override for the footer Linkedin link (defaults to the official profile).                                                                                 |
-| `NEXT_PUBLIC_GITHUB_URL`       | Optional override for the footer Github link (defaults to the official profile).                                                                                   |
-| `NEXT_PUBLIC_BOOK_URL`         | Optional page for _Break the Loop_. "Learn More" falls back to the Join section.                                                                                   |
+| Variable                       | Purpose                                                                                                               |
+| ------------------------------ | --------------------------------------------------------------------------------------------------------------------- |
+| `NEXT_PUBLIC_PROGRAM_FORM_URL` | Optional override for the Google Form behind every "Join the Program" button (defaults to the official sign-up form). |
+| `NEXT_PUBLIC_SITE_URL`         | Production origin (no trailing slash). Enables the canonical URL and absolute Open Graph URLs.                        |
+| `NEXT_PUBLIC_INSTAGRAM_URL`    | Optional override for the footer Instagram link (defaults to the official profile).                                   |
+| `NEXT_PUBLIC_LINKEDIN_URL`     | Optional override for the footer Linkedin link (defaults to the official profile).                                    |
+| `NEXT_PUBLIC_GITHUB_URL`       | Optional override for the footer Github link (defaults to the official profile).                                      |
+| `NEXT_PUBLIC_BOOK_URL`         | Optional page for _Break the Loop_. "Learn More" falls back to the Join section.                                      |
 
 Do not collect sensitive personal information in the sign-up form, and never commit `.env.local`.
 
