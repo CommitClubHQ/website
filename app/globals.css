@@ -1,0 +1,112 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-paper: #ffffff;
+  --color-ink: #3e3e3e;
+  /* Tints of the two brand colors only. */
+  --color-muted: rgb(62 62 62 / 0.75);
+  --color-line: rgb(62 62 62 / 0.16);
+  --color-paper-muted: rgb(255 255 255 / 0.75);
+  --color-paper-line: rgb(255 255 255 / 0.25);
+  --font-sans: var(--font-geist-sans);
+  --font-display: var(--font-sedgwick);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+}
+
+:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
+
+::selection {
+  background: var(--color-ink);
+  color: var(--color-paper);
+}
+
+/* Entrance on load (hero) */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.rise {
+  animation: rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: var(--delay, 0ms);
+}
+
+/* Reveal on scroll — CSS only, no JS. Browsers without scroll timelines show content immediately. */
+@supports (animation-timeline: view()) {
+  .reveal {
+    animation: rise linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 35%;
+  }
+}
+
+/* Commit graph in the hero */
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes pulse-ring {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0;
+    transform: scale(1.9);
+  }
+}
+
+.graph-line {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: draw 1.6s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+  animation-delay: var(--delay, 0ms);
+}
+
+.graph-pulse {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: pulse-ring 3.2s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .rise,
+  .reveal,
+  .graph-line,
+  .graph-pulse {
+    animation: none;
+  }
+
+  .graph-line {
+    stroke-dashoffset: 0;
+  }
+
+  .graph-pulse {
+    opacity: 0;
+  }
+}
